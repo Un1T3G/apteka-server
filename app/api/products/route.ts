@@ -3,9 +3,15 @@ import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
+  const search = searchParams.get("search");
   const categoryId = searchParams.get("categoryId");
 
-  const whereClause = categoryId ? { categoryId: parseInt(categoryId) } : {};
+  const whereClause = categoryId
+    ? {
+        name: { contains: search || "" },
+        categoryId: parseInt(categoryId),
+      }
+    : {};
 
   const products = await prisma.product.findMany({
     where: whereClause,
