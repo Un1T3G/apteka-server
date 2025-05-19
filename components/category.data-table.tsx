@@ -9,7 +9,7 @@ export const CategoryDataTable = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["category"],
     queryFn: async () => {
-      const response = await fetch(`http://localhost:3000/api/category`);
+      const response = await fetch(`/api/category`);
       return await response.json();
     },
   });
