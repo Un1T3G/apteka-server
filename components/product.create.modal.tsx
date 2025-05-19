@@ -12,6 +12,7 @@ import { Textarea } from "./ui/textarea";
 export const ProductCreateModal = ({ categories }: { categories: { id: number; name: string }[] }) => {
   const form = useForm<{
     name: string;
+    building_name: string;
     description: string;
     price: number;
     exprestion_date: string;
@@ -22,6 +23,7 @@ export const ProductCreateModal = ({ categories }: { categories: { id: number; n
   }>({
     defaultValues: {
       name: "",
+      building_name: "",
       description: "",
       price: 0,
       exprestion_date: "",
@@ -63,7 +65,20 @@ export const ProductCreateModal = ({ categories }: { categories: { id: number; n
                 <FormItem>
                   <FormLabel>Ati</FormLabel>
                   <FormControl>
-                    <Input placeholder="Tovar ati..." {...field} className="mb-2" />
+                    <Input placeholder="Dari ati..." {...field} className="mb-2" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              name="building_name"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Darixana ati</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Darixana ati ati..." {...field} className="mb-2" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -76,7 +91,7 @@ export const ProductCreateModal = ({ categories }: { categories: { id: number; n
                 <FormItem>
                   <FormLabel>Xarakteristika</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Tovar xarakteristikasi " {...field} className="mb-2" />
+                    <Textarea placeholder="Dari xarakteristikasi " {...field} className="mb-2" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -126,9 +141,9 @@ export const ProductCreateModal = ({ categories }: { categories: { id: number; n
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Senasi</FormLabel>
+                  <FormLabel>Bahasi</FormLabel>
                   <FormControl>
-                    <Input placeholder="Senasi..." {...field} className="mb-2" />
+                    <Input placeholder="Bahasi..." {...field} className="mb-2" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -139,9 +154,9 @@ export const ProductCreateModal = ({ categories }: { categories: { id: number; n
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Muddeti</FormLabel>
+                  <FormLabel>Saqlaw muddeti</FormLabel>
                   <FormControl>
-                    <Input placeholder="Muddeti..." {...field} className="mb-2" />
+                    <Input placeholder="Saqlaw muddeti..." {...field} className="mb-2" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

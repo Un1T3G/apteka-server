@@ -1,6 +1,5 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
-
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const search = searchParams.get("search");
@@ -9,8 +8,14 @@ export async function GET(req: Request) {
   const whereClause =
     categoryId || search
       ? {
-          name: { contains: search || "" },
-          categoryId: categoryId ? parseInt(categoryId) : undefined,
+          AND: [
+            categoryId ? { categoryId: parseInt(categoryId) } : {},
+            search
+              ? {
+                  OR: [{ name: { contains: search } }, { building_name: { contains: search } }],
+                }
+              : {},
+          ],
         }
       : {};
 
@@ -21,10 +26,9 @@ export async function GET(req: Request) {
 
   return NextResponse.json(products);
 }
-
 export async function POST(req: Request) {
   const data = await req.json();
-  const { name, categoryId, price, description, image, exprestion_date, location, phone_number } = data;
+  const { name, categoryId, price, description, image, exprestion_date, building_name, location, phone_number } = data;
 
   const product = await prisma.product.create({
     data: {
@@ -34,6 +38,7 @@ export async function POST(req: Request) {
       description,
       image,
       exprestion_date,
+      building_name,
       location,
       phone_number,
     },

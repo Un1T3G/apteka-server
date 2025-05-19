@@ -17,6 +17,7 @@ model Category {
 model Product {
   id              Int      @id @default(autoincrement())
   name            String
+  building_name   String
   image           String
   description     String   @db.Text
   price           Float

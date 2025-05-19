@@ -7,7 +7,7 @@ import { NoSSR } from "@/lib/no-ssr";
 export const revalidate = 0;
 
 async function getCategories() {
-  const response = await fetch(`https://apteka-server.vercel.app/api/category`);
+  const response = await fetch(`http://localhost:3000/api/category`);
   return await response.json();
 }
 
@@ -24,7 +24,7 @@ export default async function Page() {
           </div>
           <CategoryDataTable />
           <div className="flex items-center justify-between my-4">
-            <h1 className="text-xl font-bold">Tovarlar</h1>
+            <h1 className="text-xl font-bold">Dariler</h1>
             <ProductCreateModal categories={categories} />
           </div>
           <ProductDataTable />

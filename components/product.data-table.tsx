@@ -29,7 +29,7 @@ export const ProductDataTable = () => {
             <TableHead>Ati</TableHead>
             <TableHead>Manzili</TableHead>
             <TableHead>Tel nomeri</TableHead>
-            <TableHead>Senasi</TableHead>
+            <TableHead>Bahasi</TableHead>
             <TableHead>Kategoriyasi</TableHead>
             <TableHead className="text-right">Háreketler</TableHead>
           </TableRow>
