@@ -7,7 +7,7 @@ import { NoSSR } from "@/lib/no-ssr";
 export const revalidate = 0;
 
 async function getCategories() {
-  const response = await fetch(`${process.env.CLIENT_URL}/api/category`);
+  const response = await fetch(`https://apteka-server.vercel.app/api/category`);
   return await response.json();
 }
 
