@@ -6,12 +6,13 @@ export async function GET(req: Request) {
   const search = searchParams.get("search");
   const categoryId = searchParams.get("categoryId");
 
-  const whereClause = categoryId
-    ? {
-        name: { contains: search || "" },
-        categoryId: parseInt(categoryId),
-      }
-    : {};
+  const whereClause =
+    categoryId || search
+      ? {
+          name: { contains: search || "" },
+          categoryId: categoryId ? parseInt(categoryId) : undefined,
+        }
+      : {};
 
   const products = await prisma.product.findMany({
     where: whereClause,
