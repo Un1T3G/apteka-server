@@ -50,11 +50,11 @@ export const ProductCreateModal = ({ categories }: { categories: { id: number; n
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Tovar jaratiw</Button>
+        <Button>Da'ri jaratiw</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Tovar jaratiw</DialogTitle>
+          <DialogTitle>Da'ri jaratiw</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
